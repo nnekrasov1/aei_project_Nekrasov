@@ -149,6 +149,148 @@ http://127.0.0.1:8000/docs
 - вызывать `GET /health`;
 - вызывать `POST /quality` (форма для JSON);
 - вызывать `POST /quality-from-csv` (форма для загрузки файла).
+- вызывать `POST /quality-flags-from-csv`
+
+---
+
+### 3. `POST /quality` – заглушка по агрегированным признакам
+
+Эндпоинт принимает **агрегированные признаки датасета** (размеры, доля пропусков и т.п.) и возвращает эвристическую оценку качества.
+
+**Пример запроса:**
+
+```http
+POST /quality
+Content-Type: application/json
+```
+
+Тело:
+
+```json
+{
+  "n_rows": 10000,
+  "n_cols": 12,
+  "max_missing_share": 0.15,
+  "numeric_cols": 8,
+  "categorical_cols": 4
+}
+```
+
+**Пример ответа `200 OK`:**
+
+```json
+{
+  "ok_for_model": true,
+  "quality_score": 0.8,
+  "message": "Данных достаточно, модель можно обучать (по текущим эвристикам).",
+  "latency_ms": 3.2,
+  "flags": {
+    "too_few_rows": false,
+    "too_many_columns": false,
+    "too_many_missing": false,
+    "no_numeric_columns": false,
+    "no_categorical_columns": false
+  },
+  "dataset_shape": {
+    "n_rows": 10000,
+    "n_cols": 12
+  }
+}
+```
+
+**Пример вызова через `curl`:**
+
+```bash
+curl -X POST "http://127.0.0.1:8000/quality" \
+  -H "Content-Type: application/json" \
+  -d '{"n_rows": 10000, "n_cols": 12, "max_missing_share": 0.15, "numeric_cols": 8, "categorical_cols": 4}'
+```
+
+---
+
+### 4. `POST /quality-from-csv` – оценка качества по CSV-файлу
+
+Эндпоинт принимает CSV-файл, внутри:
+
+- читает его в `pandas.DataFrame`;
+- вызывает функции из `eda_cli.core`:
+
+  - `summarize_dataset`,
+  - `missing_table`,
+  - `compute_quality_flags`;
+- возвращает оценку качества датасета в том же формате, что `/quality`.
+
+**Запрос:**
+
+```http
+POST /quality-from-csv
+Content-Type: multipart/form-data
+file: <CSV-файл>
+```
+
+Через Swagger:
+
+- в `/docs` открыть `POST /quality-from-csv`,
+- нажать `Try it out`,
+- выбрать файл (например, `data/example.csv`),
+- нажать `Execute`.
+
+**Пример вызова через `curl` (Linux/macOS/WSL):**
+
+```bash
+curl -X POST "http://127.0.0.1:8000/quality-from-csv" \
+  -F "file=@data/example.csv"
+```
+
+Ответ будет содержать:
+
+- `ok_for_model` - результат по эвристикам;
+- `quality_score` - интегральный скор качества;
+- `flags` - булевы флаги из `compute_quality_flags`;
+- `dataset_shape` - реальные размеры датасета (`n_rows`, `n_cols`);
+- `latency_ms` - время обработки запроса.
+
+---
+
+### 5. `POST /quality-flags-from-csv` - полные флаги качества по CSV-файлу
+
+Эндпоинт возвращает полный набор флагов качества данных из CSV-файла, включая новые эвристики, добавленные в HW03:
+
+`has_constant_columns` - наличие константных колонок 
+`has_high_cardinality_categoricals` - наличие категориальных признаков с высокой кардинальностью
+
+**Запрос:**
+
+```http
+POST /quality-flags-from-csv
+Content-Type: multipart/form-data
+file: <CSV-файл>
+```
+`file` - обязательный параметр
+
+Через Swagger:
+
+- в `/docs` открыть `POST /quality-flags-from-csv`,
+- нажать `Try it out`,
+- выбрать файл (например, `data/example.csv`),
+- нажать `Execute`.
+
+**Пример вызова через `curl` (Linux/macOS/WSL):**
+
+```bash
+curl -X POST "http://127.0.0.1:8000/quality-flags-from-csv" \
+  -F "file=@data/example.csv"
+```
+
+Ответ будет содержать:
+
+- `too_few_rows` - флаг недостаточного количества строк;
+- `too_many_columns` - флаг избыточного количества колонок;
+- `too_many_missing` - флаг большого количества пропусков;
+- `has_constant_columns` - наличие константных колонок;
+- `has_high_cardinality_categoricals` - список константных колонок;
+- `high_cardinality_list` - наличие категориальных признаков с высокой кардинальностью;
+- `constant_columns_list` - список категориальных колонок с высокой кардинальностью.
 
 ---
 
@@ -162,4 +304,4 @@ uv run pytest -q
 
 1. Запустить тесты `pytest`;
 2. Проверить работу CLI (`uv run eda-cli ...`);
-3. Проверить работу HTTP-сервиса (`uv run uvicorn ...`, затем `/health` и `/quality`/`/quality-from-csv` через `/docs` или HTTP-клиент).
+3. Проверить работу HTTP-сервиса (`uv run uvicorn ...`, затем `/health` и `/quality`/`/quality-from-csv`/`/quality-flags-from-csv` через `/docs` или HTTP-клиент).
