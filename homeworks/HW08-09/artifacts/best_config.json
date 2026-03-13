@@ -1,0 +1,1 @@
+{"architecture": "Hidden: 256-128, BN: True, DO: False", "optimizer": "Adam", "lr": 0.001, "seed": 42, "dataset": "CIFAR10", "early_stopping_patience": 4}

@@ -1,0 +1,8 @@
+experiment_id,dataset,seed,model_summary,optimizer,lr,momentum,weight_decay,epochs_trained,best_val_accuracy,best_val_loss
+E1,CIFAR10,42,"Hidden: 256-128, BN: False, DO: False",Adam,0.001,0.0,0.0,15,0.5164,1.3882124238967894
+E2,CIFAR10,42,"Hidden: 256-128, BN: False, DO: True",Adam,0.001,0.0,0.0,15,0.5222,1.364156591796875
+E3,CIFAR10,42,"Hidden: 256-128, BN: True, DO: False",Adam,0.001,0.0,0.0,15,0.5459,1.3020382368087768
+E4,CIFAR10,42,"Hidden: 256-128, BN: True, DO: False + ES",Adam,0.001,0.0,0.0,9,0.5469,1.2941337707519531
+O1,CIFAR10,42,"Hidden: 256-128, BN: True, DO: False",Adam,0.1,0.0,0.0,8,0.4406,1.5229557764053345
+O2,CIFAR10,42,"Hidden: 256-128, BN: True, DO: False",Adam,1e-05,0.0,0.0,8,0.4892,1.5141746646881105
+O3,CIFAR10,42,"Hidden: 256-128, BN: True, DO: False",SGD,0.01,0.9,0.0001,15,0.5343,1.3163387966156006
