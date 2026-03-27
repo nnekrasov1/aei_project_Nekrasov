@@ -1,0 +1,7 @@
+experiment_id,task,dataset,seed,model_summary,optimizer,lr,epochs_trained,best_val_accuracy,test_accuracy,precision,recall,mean_iou,notes
+C1,classification,STL10,42,"SimpleCNN 3conv+2fc, no aug",Adam,0.001,20,0.632,,,,,"Baseline. Base transforms (64×64, norm ±0.5)."
+C2,classification,STL10,42,"SimpleCNN 3conv+2fc, with aug",Adam,0.001,20,0.53,,,,,"Same arch as C1. Aug: RandomHFlip, RandomCrop(pad=8), ColorJitter, RandomRotation(15)."
+C3,classification,STL10,42,"ResNet18-pretrained, head-only (backbone frozen)",Adam,0.001,10,0.936,,,,,ResNet18 IMAGENET1K_V1. All backbone frozen; only fc trained (512→10).
+C4,classification,STL10,42,"ResNet18-pretrained, layer4+fc fine-tuned",Adam,0.0005,10,0.952,0.94925,,,,"ResNet18 IMAGENET1K_V1. layer4+fc unfrozen, lower lr=5e-4."
+V1,segmentation,OxfordIIITPet,42,"FCN_ResNet50 COCO_WITH_VOC_LABELS_V1; argmax→{8,12}→fg",N/A (inference only),,0,,,0.770494,0.935128,0.736526,No postprocessing. Evaluated on 150 images from test split.
+V2,segmentation,OxfordIIITPet,42,FCN_ResNet50 + remove CC<1000px (scipy.ndimage),N/A (inference only),,0,,,0.771126,0.934095,0.736563,V1 + connected-component filter (min_size=1000 px). N=150.

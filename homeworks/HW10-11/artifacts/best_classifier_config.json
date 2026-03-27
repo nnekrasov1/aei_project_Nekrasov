@@ -1,0 +1,28 @@
+{
+  "experiment_id": "C4",
+  "architecture": "ResNet18-finetune",
+  "dataset": "STL10",
+  "num_classes": 10,
+  "seed": 42,
+  "input_size": 224,
+  "normalize_mean": [
+    0.485,
+    0.456,
+    0.406
+  ],
+  "normalize_std": [
+    0.229,
+    0.224,
+    0.225
+  ],
+  "augmentation": false,
+  "frozen_layers": "layer1-3",
+  "batch_size": 64,
+  "epochs_trained": 10,
+  "optimizer": "Adam",
+  "lr": 0.0005,
+  "weight_decay": 0.0001,
+  "scheduler": "CosineAnnealingLR",
+  "best_val_acc": 0.952,
+  "test_acc": 0.94925
+}
