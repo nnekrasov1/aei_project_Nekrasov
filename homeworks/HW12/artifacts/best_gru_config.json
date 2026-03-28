@@ -13,13 +13,13 @@
   "weight_decay": 1e-05,
   "scheduler": "ReduceLROnPlateau(factor=0.5, patience=4)",
   "max_epochs": 30,
-  "epochs_trained": 21,
+  "epochs_trained": 30,
   "early_stopping_patience": 7,
   "scaler": "MinMaxScaler (fit on train target)",
-  "best_val_mae": 6.10104,
-  "best_val_rmse": 7.7011,
-  "best_val_mape": 4.07369,
-  "test_mae": 6.39122,
-  "test_rmse": 8.19308,
-  "test_mape": 4.1004
+  "best_val_mae": 5.81485,
+  "best_val_rmse": 7.34152,
+  "best_val_mape": 3.9105,
+  "test_mae": 6.02764,
+  "test_rmse": 7.69007,
+  "test_mape": 3.90096
 }
