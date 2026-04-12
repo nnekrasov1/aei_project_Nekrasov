@@ -1,0 +1,31 @@
+question,answer,retrieved_sources
+What is gradient descent and how does it work?,"Based on the knowledge base, here is what is known about your question.
+
+Gradient descent is an iterative optimisation algorithm used to minimise a loss function. At each step the parameters are updated in the direction opposite to the gradient of the loss with respect to those parameters. The learning rate controls the step size. Variants include batch gradient descent (uses all data),
+
+[Additional context from 3 retrieved fragments.]",doc_04 | doc_11 | doc_04
+How can I prevent overfitting?,"Based on the knowledge base, here is what is known about your question.
+
+Overfitting occurs when a machine learning model learns the training data too well, including noise, so it performs poorly on new data. Signs: low training loss but high validation loss. Techniques to prevent overfitting: regularisation (L1/L2 penalties on weights), dropout (randomly zeroing neurons during training),
+
+[Additional context from 3 retrieved fragments.]",doc_05 | doc_01 | doc_20
+How does the attention mechanism work in transformers?,"Based on the knowledge base, here is what is known about your question.
+
+The attention mechanism allows a model to dynamically focus on different parts of the input when producing each output. In the Transformer architecture self-attention computes queries, keys and values from the input sequence. The attention weight between two positions is proportional to the dot product of their query
+
+[Additional context from 3 retrieved fragments.]",doc_14 | doc_21 | doc_14
+What is the difference between L1 and L2 regularisation?,"Based on the knowledge base, here is what is known about your question.
+
+L1 regularisation (Lasso) adds the sum of absolute values of weights to the loss: lambda * sum(|w|). This encourages sparsity: many weights become exactly zero, performing implicit feature selection. L2 regularisation (Ridge) adds the sum of squared weights: lambda * sum(w^2). This penalises large weights but rarely
+
+[Additional context from 3 retrieved fragments.]",doc_16 | doc_16 | doc_15
+How does an LSTM network work?,"Based on the knowledge base, here is what is known about your question.
+
+Long Short-Term Memory (LSTM) is a type of recurrent neural network (RNN) designed to remember long-range dependencies. Vanilla RNNs suffer from vanishing and exploding gradients when sequences are long. LSTMs solve this with a cell state and three gates: the forget gate decides what to discard, the input gate decides
+
+[Additional context from 3 retrieved fragments.]",doc_21 | doc_03 | doc_21
+What is the purpose of cross-validation?,"Based on the knowledge base, here is what is known about your question.
+
+Cross-validation is a technique to evaluate a model's generalisation ability. In k-fold cross-validation the training data is split into k equal folds. The model is trained on k-1 folds and evaluated on the remaining fold, repeating this k times with a different validation fold each time. The final metric is averaged
+
+[Additional context from 3 retrieved fragments.]",doc_06 | doc_05 | doc_11

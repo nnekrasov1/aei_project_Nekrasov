@@ -1,0 +1,18 @@
+query,expected_source,retrieved_sources,hit_at_k,rank_of_first_relevant
+How do I train a model when I have labelled examples?,doc_01,doc_01 | doc_12 | doc_12,1,1
+What can I do with data that has no labels?,doc_02,doc_02 | doc_01 | doc_01,1,1
+How do neurons pass information through layers during training?,doc_03,doc_03 | doc_03 | doc_12,1,1
+Why does my model perform well on training data but poorly on new examples?,doc_05,doc_01 | doc_05 | doc_20,1,2
+How can I reliably estimate model performance without touching the test set?,doc_06,doc_20 | doc_11 | doc_11,0,-1
+What table helps me see which categories a classifier confuses?,doc_07,doc_07 | doc_18 | doc_11,1,1
+Which metric should I use when false negatives are more costly than false positives?,doc_09,doc_09 | doc_07 | doc_06,1,1
+How do trees vote together to make a more stable prediction?,doc_08,doc_08 | doc_08 | doc_11,1,1
+Can I reuse a model trained on one problem to solve a different one?,doc_12,doc_12 | doc_12 | doc_01,1,1
+How do vectors capture that king minus man equals queen?,doc_13,doc_13 | doc_13 | doc_17,1,1
+Why do large weight values cause poor generalisation?,doc_16,doc_16 | doc_20 | doc_16,1,1
+How can I compress many features into two dimensions for a scatter plot?,doc_17,doc_17 | doc_17 | doc_17,1,1
+What penalty shrinks all weights but keeps them non-zero?,doc_16,doc_16 | doc_16 | doc_06,1,1
+How do I reduce the number of input variables before training?,doc_17,doc_05 | doc_05 | doc_02,0,-1
+What curve plots sensitivity against specificity at different thresholds?,doc_18,doc_18 | doc_09 | doc_20,1,1
+How does injecting noise into training images improve generalisation?,doc_19,doc_19 | doc_19 | doc_20,1,1
+Why does a complex model fail on data it has never seen?,doc_20,doc_05 | doc_20 | doc_20,1,2
