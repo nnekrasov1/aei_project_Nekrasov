@@ -133,10 +133,10 @@ Endpoints:
 - `POST /predict` - оценка сложности английского текста в JSON-формате.
 - `GET /docs` - Swagger UI.
 
-Для перехода на веб-страницу перейдите: 
-- http://localhost:8000/ - основная страница для ввода текста
-- http://localhost:8000/docs - Swagger UI
-- http://localhost:8000/health - проверка, что сервис жив
+Для перехода на веб-страницы перейдите: 
+- `http://localhost:8000/` - основная страница для ввода текста
+- `http://localhost:8000/docs` - Swagger UI
+- `http://localhost:8000/health` - проверка, что сервис жив
 
 Ограничения ввода:
 
