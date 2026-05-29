@@ -1,0 +1,21 @@
+text,target,level
+"The cat sat on the mat. It looked at the sun.",0.18,easy
+"A small dog ran across the yard and found a ball.",0.21,easy
+"Rain fell softly on the roof while the children read books.",0.28,easy
+"The bright moon rose over the quiet town after dinner.",0.25,easy
+"Plants need water, light, and warm air to grow well.",0.24,easy
+"Tom packed his bag, closed the door, and walked to school.",0.27,easy
+"The museum guide explained how ancient tools were made and used by early farmers.",0.52,medium
+"Because the train was delayed, several passengers missed their connecting buses downtown.",0.55,medium
+"The article compares renewable energy sources and describes their economic advantages for cities.",0.58,medium
+"Students revised their essays after receiving detailed comments about structure and evidence.",0.57,medium
+"The committee postponed the decision until members could review the financial report.",0.54,medium
+"Although the experiment was simple, it demonstrated how pressure changes the boiling point of water.",0.61,medium
+"Photosynthesis converts light energy into chemical energy through a sequence of reactions in plant cells.",0.74,hard
+"The novelist juxtaposes fragmented memories with political commentary to examine identity under displacement.",0.81,hard
+"Macroeconomic instability can intensify inequality when inflation erodes household purchasing power.",0.78,hard
+"Neuroscientists investigated whether sustained attention modulates cortical responses during ambiguous perception.",0.86,hard
+"The constitutional amendment generated extensive debate concerning federal authority and individual liberties.",0.79,hard
+"Epidemiological models incorporate uncertainty to estimate transmission dynamics across heterogeneous populations.",0.88,hard
+"Algorithmic recommendation systems may reproduce social biases when training data reflect historical inequities.",0.84,hard
+"The philosopher's argument depends on a distinction between empirical observation and normative justification.",0.83,hard

@@ -1,0 +1,8 @@
+data_path: data/cefr_long_en.csv
+model_path: artifacts/text_complexity_model.json
+metrics_path: artifacts/metrics.json
+test_size: 0.2
+random_state: 42
+max_features: 1200
+regularization: 1.0
+epochs: 120

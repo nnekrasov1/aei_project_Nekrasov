@@ -1,0 +1,31 @@
+{
+  "protocol": {
+    "train_rows": 498,
+    "validation_rows": 125,
+    "test_rows": 156,
+    "test_size": 0.2,
+    "random_state": 42,
+    "split_strategy": "stratified_by_cefr_level"
+  },
+  "baseline_mean": {
+    "mae": 0.2256,
+    "rmse": 0.2662
+  },
+  "ridge_tfidf_readability_features": {
+    "mae": 0.1182,
+    "rmse": 0.1529,
+    "r2": 0.6701,
+    "spearman": 0.8391,
+    "accuracy": 0.4744,
+    "macro_f1": 0.4591,
+    "adjacent_accuracy": 0.9103
+  },
+  "calibrated_thresholds": [
+    0.1036,
+    0.3031,
+    0.5028,
+    0.6991,
+    0.8849
+  ],
+  "selected_model": "ridge_tfidf_readability_features"
+}
