@@ -134,7 +134,9 @@ Endpoints:
 - `GET /docs` - Swagger UI.
 
 Для перехода на веб-страницу перейдите: 
-- http://localhost:8000/
+http://localhost:8000/ - основная страница для ввода текста
+http://localhost:8000/docs - Swagger UI
+http://localhost:8000/health - проверка, что сервис жив
 
 Ограничения ввода:
 
